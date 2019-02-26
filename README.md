@@ -25,14 +25,14 @@ var lm = new LoadMore({
 ### Parameters:
 #### id
 Element in which you want the 'Load More' link to be generated.
-#### label
-Generated link's label
-#### data
-Data to POST to the endpoint.
+#### label(Optional)
+Generated link's label. If not set, defaults to 'Load more'.
+#### data(Optional)
+Data to POST to the endpoint. If not set.
 #### endpoint
 URL to which the data will be sent and from which response is pulled.
-#### cssClass
-CSS class(es) to add to the generated link
+#### cssClass(Optional)
+CSS class(es) to add to the generated link.
 #### callback
 Function to process the returned data
 
