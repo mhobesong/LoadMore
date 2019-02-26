@@ -2,13 +2,14 @@ function LoadMore(){
 	this.id = arguments[0].id?arguments[0].id:'';
 	this.callback = arguments[0].callback?arguments[0].callback:function(){};
 	this.endpoint = arguments[0].endpoint?arguments[0].endpoint:'';
+	this.label = arguments[0].label?arguments[0].label:'Load more';
 	this.pageSize = arguments[0].pageSize?arguments[0].pageSize:10;
 	this.data = arguments[0].data?arguments[0].data:{};
 	this.cssClass = arguments[0].cssClass?arguments[0].cssClass:'';
-	addLoadMoreLink(this.id, this.next.bind(this), this.cssClass);
+	addLoadMoreLink(this.id, this.next.bind(this), this.cssClass, this.label);
 	this.next();
 
-	function addLoadMoreLink(id,next,cssClass)
+	function addLoadMoreLink(id,next,cssClass,label)
 	{
 		var listElement = document.querySelector('#'+id);
 
@@ -18,7 +19,7 @@ function LoadMore(){
 			link.setAttribute('class','loadmore-link ' + cssClass);
 			link.setAttribute('data-target',id);
 			link.setAttribute('href','javascript:');
-			var text = document.createTextNode("Load more");
+			var text = document.createTextNode(label);
 			link.appendChild(text);
 			link.onclick = function(){
 				next();

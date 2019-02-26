@@ -102,3 +102,18 @@ describe("Load More", function() {
 		});
 	});
 });
+
+	it("should set link label", function(done) {
+		var lm = new LoadMore({
+			id:'list',
+			endpoint: 'apiFirstCallMock.txt',
+			data:{},
+			label:'Get more',
+			pageSize:10,
+			callback:function(response){	
+				expect(document.querySelector('a.loadmore-link').innerHTML).toEqual('Get more');
+				done();
+			}
+		});
+	});
+
